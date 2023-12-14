@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Description of your website">
+	<meta name="keywords" content="keywords, separated, by, commas">
+	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>KHAMAKStore</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark  fixed-top">
+        <div class="container">
+			<a class="navbar-brand" href="{{ url_for('site.home') }}"><img src="../static/images/logo.jpg" alt="Logo" style="width: 60px; height: 60px;"><br>KHAMAKStore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+					
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('site.home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('site.women_cloths') }}">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('site.men_cloths') }}">Men</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('auth.signin') }}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ url_for('auth.signup') }}">Sign Up</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Contan -->
+    {% block content %}
+    {% endblock %}
+    <!-- end Main Contan -->
+
+    <!-- Footer Section -->
+	<section class="container-fluid footer" style="background-color: #e6e6e6; padding-bottom: 30px;">
+		<div class="row">
+			<div class="col-xs-12 col-md-2"></div>
+			<div class="col-xs-12 col-md-5">
+				<div style="margin-top: 40px;" class="footer-logo">
+					<!-- <img src="images/logo.jpg" style="width: 80px; width: 80px;"> -->
+					<i style="color: #00767b; font-size: 50px;">KHAMAKStore</i>
+					<p style="color: #00767b; margin-top: 40px;">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, <br> nisi ut aliquid ex ea commodi consequatu.Ut enim ad minima veniam, quis nostrum exercitationem <br> ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatu</p>
+				</div>
+			</div>
+			
+			<div class="col-xs-12 col-md-3">
+				<div class="footer-address">
+					<h2 style="color: #00767b; margin-top: 40px; margin-bottom: 30px;">Contact Us</h2>
+					<ul>
+						<li>
+							<i class="fa fa-map-marker" ></i> Dasht-e-Barche, Kabul, Afg
+						</li>
+						<li>
+							<i class="fa fa-phone"></i> +93(768)-865-5842
+						</li>
+						<li>
+							<i class="fa fa-envelope" ></i> khamakstore@gmail.com
+						</li>
+					</ul>
+					
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-2">
+			</div>
+		</div>
+	</section>
+
+    <script src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>   
+</body>
+</html>
