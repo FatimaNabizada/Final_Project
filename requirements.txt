@@ -13,3 +13,4 @@ python-dotenv
 SQLAlchemy
 typing_extensions==4.9.0
 Werkzeug
+flask_migrate
